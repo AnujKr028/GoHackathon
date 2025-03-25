@@ -1,6 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {  faSearch } from "@fortawesome/free-solid-svg-icons";
 import Navbar from "@/components/Navbar";
+import Hacktahons from "@/components/Hacktahons";
+import Hackathons from "@/components/Hacktahons";
 
 export default function Home() {
   return (
@@ -62,6 +64,7 @@ export default function Home() {
 
 
       </div>
+      <Hackathons/>
     </>
   );
 }
