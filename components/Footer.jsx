@@ -11,7 +11,7 @@ const Footer = () => {
 </div>
 
    <div className="flex flex-row p-2 gap-3"> 
-   <Link href="" className="text-black fontp-mono text-xs">Privacy</Link>
+   <Link href="" className="text-black font-mono text-xs">Privacy</Link>
    <Link href="" className="text-black font-mono text-xs">Terms</Link>
    </div>
 
