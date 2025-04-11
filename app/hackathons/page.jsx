@@ -5,8 +5,22 @@ import { faCalendar, faTrophy ,faSearch} from '@fortawesome/free-solid-svg-icons
 import { faDiagramProject } from '@fortawesome/free-solid-svg-icons';
 import { faUsers } from '@fortawesome/free-solid-svg-icons';
 import Navbar from '@/components/Navbar';
+import { useState } from 'react';
+const Hackathons = () => { 
 
-const Hackathons = () => {
+  const [query, setQuery]  = useState("") ; 
+
+  //hackathons data 
+  const hackathons = [
+  { name: "nights", desc: "Nights Season 1 is an exciting event where people from all fields come together to work on their ideas and create amazing projects...", img: "/a.png" },
+  { name: "gpt wrapper hackathon", desc: "The gpt wrapper hackathon is a global online competition where participants build innovative AI applications...", img: "/b.png" },
+  { name: "nexathon", desc: "Enter the metagame of hackathons...", img: "/c.png" },
+  { name: "screenpipe computer use hackathon", desc: "A hackathon focused on innovative screen sharing solutions...", img: "/d.png" },
+];
+
+
+//filter the search 
+const filteredItems = hackathons.filter(hackathons => hackathons.name.toLowerCase().includes(query.toLowerCase()));
   return (
 <>
     <Navbar />
@@ -21,6 +35,7 @@ const Hackathons = () => {
 
       <div className="flex justify-center mt-10">
 <div className="relative w-full max-w-xl">
+
   {/* Search Icon Inside Input */}
   <FontAwesomeIcon
     icon={faSearch}
@@ -32,6 +47,9 @@ const Hackathons = () => {
     className="w-full text-sm text-black rounded px-8 py-2 shadow-md 
                focus:outline-none focus:ring-1 focus:ring-gray-300 
                placeholder:font-mono placeholder:text-xs placeholder:text-gray-900 "
+
+    onChange={(e) =>setQuery(e.target.value)}
+  
   />
 </div> 
 
@@ -69,7 +87,7 @@ const Hackathons = () => {
 
 
 
-    ///
+    {/* Cards */}
 
 
 
@@ -82,7 +100,7 @@ const Hackathons = () => {
 
         {/* Middle - Details */}
         <div className="flex-1">
-          <p className="text-sm text-gray-900 font-mono pb-3">nights</p>
+          <p className="text-sm text-gray-900 font-mono pb-3">{hackathons.name}</p>
           <p className="text-[11px] text-gray-600 leading-4 font-mono">
             Nights Season 1 is an exciting event where people from all fields come together to work on their ideas and create amazing projects...
           </p>

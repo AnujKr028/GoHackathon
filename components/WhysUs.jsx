@@ -26,7 +26,7 @@ const WhysUs = () => {
 
   <div className='flex flex-col w-[300px] bg-white shadow-lg mb-5 text-left p-5 rounded-lg transition duration-300 hover:bg-gray-100'>
     <p className='text-sky-600 pt-1 pb-1 pl-2'><FontAwesomeIcon icon={faUsersGear}/> </p> 
-    <p className='text-gray-900 text-sm font-sans  pl-2 pt-3 pb-1'>networking opportunities</p> 
+    <p className='text-gray-600 text-sm font-sans  pl-2 pt-3 pb-1'>networking opportunities</p> 
     <p className='text-gray-600 text-[11px] font-mono pt-1 pl-2 pb-8'>network with hackathon sponsors and participants</p>
   </div>
 

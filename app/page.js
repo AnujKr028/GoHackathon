@@ -1,12 +1,12 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import {  faArrowRight, faSearch } from "@fortawesome/free-solid-svg-icons";
 import Navbar from "@/components/Navbar";
 import Hackathons from "@/components/Hacktahons";
 import WhysUs from "@/components/WhysUs";
-import { Carousel } from "@/components/ui/carousel"; // ✅ Correct import
+import { Carousel } from "@/components/ui/carousel"; 
 import Footer from "@/components/Footer"; 
-import { Boxes } from "@/components/ui/background"; // ✅ Now it works!
-
+import { Boxes } from "@/components/ui/background"; 
+import Link from "next/link";
 
 
 
@@ -70,6 +70,12 @@ export default function Home() {
       </div>
 
       <Hackathons />
+      
+      <div className="text-sky-800 text-center text-xl font-mono ">
+      <Link  href="/hackathons"> see all<FontAwesomeIcon icon={faArrowRight} className="text-sm pl-5 hover:underline hover:underline-offset-1"/></Link>
+       
+      </div>
+      
       <WhysUs />
 
       <div className="text-gray-900 text-center text-2xl mt-10 mb-5 font-mono gap-4">
@@ -77,7 +83,7 @@ export default function Home() {
       </div>
 
       <div className="flex justify-center items-center overflow-hidden">
-        <Carousel slides={slides} /> {/* ✅ Centered */}
+        <Carousel slides={slides} /> 
       </div>
 
     
