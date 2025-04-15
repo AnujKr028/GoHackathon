@@ -1,6 +1,7 @@
 "use client"
 import Link from "next/link"
 import { useState } from "react"
+import Navbar from "@/components/Navbar"
 
 const Page = () => {
   const [query, setQuery] = useState("")
@@ -62,6 +63,8 @@ const Page = () => {
   )
 
   return (
+    <>
+    <Navbar/>
     <div className="min-h-screen bg-gray-50 p-8">
       <div className="max-w-6xl mx-auto">
         <h1 className="text-3xl text-gray-800 mb-8 font-medium">Hackathon Hall of Fame 🏆</h1>
@@ -160,6 +163,7 @@ const Page = () => {
         </div>
       </div>
     </div>
+    </>
   )
 }
 
