@@ -2,8 +2,8 @@
 import Navbar from "@/components/Navbar";
 import { useEffect, useState } from "react";
 import { useAuth } from "@/AuthContext";
-import { auth } from "@/firbase-config"; 
-import { time } from "motion";
+// import { auth } from "@/firbase-config"; 
+// import { time } from "motion";
 
 
 const Page = () => {
