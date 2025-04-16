@@ -1,8 +1,30 @@
 "use client";
 import Navbar from "@/components/Navbar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useAuth } from "@/AuthContext";
+import { auth } from "@/firbase-config"; 
+import { time } from "motion";
+
 
 const Page = () => {
+
+  const[newUser , setNewUser] = useState("") ; 
+
+  //get new user name 
+  const getUserNameFromEmail = (email)=>{ 
+    if(!email) return null ;
+    return email.split("@")[0] ;
+  }
+
+  const { user } = useAuth(); 
+
+  useEffect(() => {
+    if (user?.email) {
+      const name = getUserNameFromEmail(user.email);
+      setNewUser(name);
+    }
+  }, [user]);
+
   const [query, setQuery] = useState(""); 
   const [newPost, setNewPost] = useState(""); // State for the new post content
   const [postContent, setPostContent] = useState(""); // State for the post content
@@ -40,17 +62,25 @@ const Page = () => {
     if (newPost.trim() !== "" && postContent.trim() !== "") { 
       const newPostData = { 
         id: posts.length + 1,
-        username: "current_user", 
-        time: new Date().toLocaleDateString(),
+        username: newUser, 
+        time: new Date().toLocaleString('en-US', { 
+          year: "numeric", 
+          month: 'short',
+          day: 'numeric',
+          hour: 'numeric',
+          minute: '2-digit',
+          hour12: true,
+        }),
         profileImage: "/b.png", 
         postContent: postContent, 
-        postText: newPost, // Here the newPost will be used as additional post text
+        postText: newPost,
       };
-      setPosts([newPostData, ...posts]); // Add the new post to the beginning of the list
-      setPostContent(""); // Clear the post content after adding the post
-      setNewPost(""); // Clear the input field after adding the post
+      setPosts([newPostData, ...posts]);
+      setPostContent("");
+      setNewPost("");
     }
   };
+  
 
   // Filter posts based on the query
   const filteredPosts = posts.filter((post) => 
