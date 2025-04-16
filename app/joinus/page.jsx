@@ -5,10 +5,24 @@ import Navbar from "@/components/Navbar";
 import { auth, provider } from "@/firbase-config";
 import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+import { useAuth } from "@/AuthContext";
 
 const Page = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+
+  const router = useRouter() ; 
+  const {user} = useAuth() ;  
+
+  useEffect(() => { 
+    if(user) { 
+      router.push("/");
+    }
+  }, [user]) ; 
+
 
   const handleRegister = async (e) => {
     e.preventDefault();
