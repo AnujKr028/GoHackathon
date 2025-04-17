@@ -64,7 +64,7 @@ const HackathonPage = () => {
       )}
 
       <div className="mb-10 text-center">
-        <h1 className="text-4xl font-bold mb-4 text-gray-800 font-serif">Nexathon</h1>
+        <h1 className="text-4xl font-bold mb-4 text-gray-800 font-serif">Gpt Wrapper</h1>
         <p className="text-sm font-mono">Pushing the boundaries of innovation</p>
       </div>
 
