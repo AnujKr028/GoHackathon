@@ -92,8 +92,8 @@ const HackathonPage = () => {
             <div>
               <p className="text-[12px] text-sky-800">positions opened</p>
               <ul>
-                <li className='text-[11px] font-semibold text-gray-800'>Team nober: need 1 frontend dev</li>
-                <li className='text-[11px] font-semibold text-gray-800'>Team joker: need 1 frontend dev, 1 ml dev</li>
+                <li className='text-[11px] font-semibold text-gray-800'>Team prakrit: need 1 frontend dev, 1 backend dev</li>
+                <li className='text-[11px] font-semibold text-gray-800'>Team model: need 2 machine learning dev</li>
               </ul>
             </div>
           </div>
