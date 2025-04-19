@@ -23,7 +23,7 @@ const Slide = ({ slide, index, current, handleSlideClick }) => {
         <img src={photo} alt={name} className="w-12 h-12 rounded-full border border-gray-00 shadow-md mb-3" />
 
         {/* User Name */}
-        <h2 className="text-lg md:text-sm lg:text-4xl font-semibold text-black">{name}</h2>
+        <h2 className="text-lg md:text-sm lg:text-2xl font-semibold text-black">{name}</h2>
 
         {/* College Name */}
         <p className="text-xs text-gray-500">{college}</p>
