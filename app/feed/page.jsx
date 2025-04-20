@@ -79,7 +79,6 @@ const Page = () => {
     post.username.toLowerCase().includes(query.toLowerCase())
   );
 
-  // 👇 Show alert if user not logged in
   const handlePostButtonClick = () => {
     if (!user) {
       alert("You need to login to post!");
@@ -91,31 +90,29 @@ const Page = () => {
   return (
     <>
       <Navbar />
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-6">
-        <div className="flex flex-col items-start w-[420px]">
-          <p className="text-gray-900 text-lg font-bold font-serif">feed and your Views</p>
+      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-4 sm:p-6">
+        <div className="flex flex-col items-start w-full max-w-md sm:w-[420px]">
+          <p className="text-gray-900 text-base sm:text-lg font-bold font-serif">feed and your Views</p>
 
-          {/* ✅ Enhanced button with login alert */}
           <button
             onClick={handlePostButtonClick}
-            className="text-[11px] border border-sky-400 text-sky-800 rounded px-3 py-1 font-mono cursor-pointer transition"
+            className="text-[11px] border border-sky-400 text-sky-800 rounded px-3 py-1 font-mono cursor-pointer transition mt-2"
           >
             + new post
           </button>
 
-          <div className="mb-6">
+          <div className="mb-6 w-full">
             <input
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="🔭 search post"
-              className="w-full max-w-md mt-4 text-[11px] border border-sky-400 rounded px-3 py-1 focus:outline-none focus:ring-1 focus:ring-sky-800 placeholder:text-sky-800 placeholder:pl-2 text-gray-900"
+              className="w-full mt-4 text-[11px] border border-sky-400 rounded px-3 py-1 focus:outline-none focus:ring-1 focus:ring-sky-800 placeholder:text-sky-800 placeholder:pl-2 text-gray-900"
             />
           </div>
 
-          {/* Post form - only visible if user is logged in and +new post is clicked */}
           {user && newPost !== "" && (
-            <div className="mb-6 w-full max-w-md">
+            <div className="mb-6 w-full">
               <input
                 type="text"
                 value={postContent}
@@ -139,9 +136,8 @@ const Page = () => {
           )}
         </div>
 
-        {/* Display filtered posts */}
         {filteredPosts.map((post) => (
-          <div key={post.id} className="flex flex-col gap-4 border border-gray-200 w-[420px] p-4 bg-white shadow-xl rounded-xl mt-6">
+          <div key={post.id} className="flex flex-col gap-4 border border-gray-200 w-full max-w-md sm:w-[420px] p-4 bg-white shadow-xl rounded-xl mt-6">
             <div className="flex items-center gap-4">
               <img src={post.profileImage} alt="Profile" className="w-8 h-8 rounded-full border" />
               <div className="flex flex-col">

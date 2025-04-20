@@ -38,17 +38,18 @@ const Navbar = () => {
 
         {/* hamburger */}
         <div className="md:hidden">
-          <button onClick={toggleMenu} className="text-white">
+          <button onClick={toggleMenu} className="text-gray-900">
             ☰
           </button>
         </div>
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <ul className="md:hidden flex flex-col gap-4 mt-4 text-center">
-            <li><a href="#">hackathons</a></li>
-            <li><Link href={"tools_login"} >tools</Link></li>
-            <li><a href="#">feed</a></li>
+          <ul className="md:hidden flex flex-col gap-4 mt-4 text-center text-gray-800 font-mono">
+            <li><a href="/">home</a></li>
+            <li><a href="/hackathons">hackathons</a></li>
+            <li><Link href='/tools_login' >hall of fame</Link></li>
+            <li><a href="/feed">feed</a></li>
           </ul>
         )}
 
@@ -71,6 +72,13 @@ const Navbar = () => {
         <ul className="md:flex flex-row gap-4 text-gray-800 items-center">
           {user ? (
             <>
+             <li>
+                <a href="/hosthackathonform" className='
+                  relative pb-1 after:block after:w-0 after:h-0.5 after:bg-blue-300
+                  after:absolute after:left-0 after:bottom-0 after:transition-all after:duration-200 hover:after:w-full
+                  font-serif
+                '>host a hackathon</a>
+              </li>
               <li>
                 <img   src={getProfilePicture(user.email)}  alt="Profile" title={user.email} className="w-8 h-8 rounded-full" />
               </li>
