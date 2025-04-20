@@ -23,6 +23,8 @@ const Page = () => {
   const [query, setQuery] = useState("");
   const [newPost, setNewPost] = useState("");
   const [postContent, setPostContent] = useState("");
+  const [showPostForm, setShowPostForm] = useState(false);
+
   const [posts, setPosts] = useState([
     {
       id: 1,
@@ -47,6 +49,38 @@ const Page = () => {
       profileImage: "/b.png",
       postContent: "Just launched my new portfolio! 🚀",
       postText: "Super excited to share my latest project! Built using Next.js, Tailwind CSS, and deployed on Vercel. Would love to hear your feedback! 🔥",
+    },
+    {
+      id: 4,
+      username: "mira_ui",
+      time: "Apr 01, 2025 - 4:20 PM",
+      profileImage: "/b.png",
+      postContent: "Redesigning my dashboard 💻",
+      postText: "Tried glassmorphism and neumorphism mix on my latest UI work. Thoughts?",
+    },
+    {
+      id: 5,
+      username: "codey",
+      time: "Apr 02, 2025 - 11:00 AM",
+      profileImage: "/b.png",
+      postContent: "TypeScript > JavaScript?",
+      postText: "Switched to TypeScript fully. My code feels safer and more structured now.",
+    },
+    {
+      id: 6,
+      username: "zoya_data",
+      time: "Apr 03, 2025 - 9:47 AM",
+      profileImage: "/b.png",
+      postContent: "My ML model predicted accurately!",
+      postText: "Trained a model to predict startup success. Got 90% accuracy on test data! 📊",
+    },
+    {
+      id: 7,
+      username: "adi_dev",
+      time: "Apr 04, 2025 - 7:32 PM",
+      profileImage: "/b.png",
+      postContent: "Quick VS Code tip 💡",
+      postText: "Press `Cmd + P` to quickly open any file. Game changer!",
     }
   ]);
 
@@ -70,6 +104,7 @@ const Page = () => {
       setPosts([newPostData, ...posts]);
       setPostContent("");
       setNewPost("");
+      setShowPostForm(false);
     }
   };
 
@@ -84,15 +119,15 @@ const Page = () => {
       alert("You need to login to post!");
       return;
     }
-    setNewPost(" ");
+    setShowPostForm(true);
   };
 
   return (
     <>
       <Navbar />
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-4 sm:p-6">
+      <div className="bg-gray-50 text-black flex flex-col items-center justify-center min-h-screen p-4 sm:p-6">
         <div className="flex flex-col items-start w-full max-w-md sm:w-[420px]">
-          <p className="text-gray-900 text-base sm:text-lg font-bold font-serif">feed and your Views</p>
+          <p className="text-base sm:text-lg font-bold font-serif">feed and your Views</p>
 
           <button
             onClick={handlePostButtonClick}
@@ -111,20 +146,19 @@ const Page = () => {
             />
           </div>
 
-          {user && newPost !== "" && (
+          {user && showPostForm && (
             <div className="mb-6 w-full">
               <input
                 type="text"
                 value={postContent}
                 onChange={(e) => setPostContent(e.target.value)}
-                placeholder="What's the post content?"
-                className="w-full text-[13px] text-gray-900 border border-sky-400 rounded px-4 py-2 mt-4 focus:outline-none focus:ring-1 focus:ring-sky-800 placeholder:text-sky-800"
+                placeholder="what is on you mind ?"
+                className="w-full text-[13px] text-gray-900 border border-sky-400 rounded px-4 py-2 mt-4 focus:outline-none focus:ring-1 focus:ring-sky-800 placeholder:text-[13px] placeholder:text-sky-800 placeholder:font-mono"
               />
               <textarea
                 value={newPost}
                 onChange={(e) => setNewPost(e.target.value)}
-                placeholder="What's on your mind!"
-                className="w-full mt-4 text-[13px] text-gray-900 border border-sky-400 bg-white px-4 py-2 rounded-md font-mono focus:outline-none focus:ring-1 focus:ring-sky-800 placeholder:text-sky-600"
+                className="w-full text-[13px] text-gray-900 border border-sky-400 rounded px-4 py-2 mt-4 focus:outline-none focus:ring-1 focus:ring-sky-800"
               />
               <button
                 onClick={handleNewPost}
@@ -137,24 +171,27 @@ const Page = () => {
         </div>
 
         {filteredPosts.map((post) => (
-          <div key={post.id} className="flex flex-col gap-4 border border-gray-200 w-full max-w-md sm:w-[420px] p-4 bg-white shadow-xl rounded-xl mt-6">
+          <div key={post.id} className="flex flex-col gap-4 border border-gray-200 bg-white text-black w-full max-w-md sm:w-[420px] p-4 shadow-xl rounded-xl mt-6">
             <div className="flex items-center gap-4">
               <img src={post.profileImage} alt="Profile" className="w-8 h-8 rounded-full border" />
               <div className="flex flex-col">
-                <p className="text-gray-800 font-mono">{post.username}</p>
+                <p className="font-mono">{post.username}</p>
                 <p className="text-sm text-gray-500 font-mono text-[10px]">{post.time}</p>
               </div>
-              <button className="ml-auto text-gray-500 text-xs font-mono border border-gray-500 px-2 py-1 rounded-md hover:bg-gray-100 transition cursor-pointer">
-                Follow +
-              </button>
             </div>
-
             <div className="mt-2">
-              <p className="text-sm font-mono text-gray-900 font-semibold">{post.postContent}</p>
-              <p className="text-gray-700 mt-2 text-xs font-mono">{post.postText}</p>
+              <p className="text-sm font-mono font-semibold">{post.postContent}</p>
+              <p className="mt-2 text-xs font-mono">{post.postText}</p>
             </div>
           </div>
         ))}
+
+        {/* Footer */}
+        <footer className="mt-12 w-full flex justify-center">
+          <div className="w-full max-w-md sm:w-[420px] text-center text-[11px] text-gray-800 font-mono py-3 px-4 border-t border-gray-200 backdrop-blur-md bg-white/60 shadow-md rounded-b-xl">
+            created with ❤️ by <span className="font-bold text-sky-800">anuj</span> — where dev meets vibes ✨
+          </div>
+        </footer>
       </div>
     </>
   );

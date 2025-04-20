@@ -111,6 +111,7 @@ const HackathonPage = () => {
               <option value="frontend">frontend developer</option>
               <option value="backend">backend developer</option>
               <option value="fullstack">full stack developer</option>
+              <option value="machinelearning">machine learning dev</option>
               <option value="designer">ui/ux designer</option>
               <option value="pm">project manager</option>
               <option value="other">other</option>
@@ -157,7 +158,7 @@ const HackathonPage = () => {
       </div>
 
       <div className="text-center mt-12 sm:mt-16 text-xs sm:text-sm">
-        <p>For questions, contact: techinnovate2025@example.com</p>
+        <p>For questions, contact: anujkr028@gmail.com</p>
       </div>
     </div>
   )

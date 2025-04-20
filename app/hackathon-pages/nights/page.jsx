@@ -116,6 +116,7 @@ const HackathonPage = () => {
               <option value="frontend">frontend developer</option>
               <option value="backend">backend developer</option>
               <option value="fullstack">full stack developer</option>
+              <option value="machinelearning">machine learning dev</option>
               <option value="designer">ui/ux designer</option>
               <option value="pm">project manager</option>
               <option value="other">other</option>
