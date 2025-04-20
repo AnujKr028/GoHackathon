@@ -39,3 +39,26 @@ Copy
 Edit
 npm run dev
 Visit http://localhost:3000 in your browser 🎉
+
+
+📸 Screenshots
+Add some screenshots or screen recordings here to showcase the app UI!
+
+![Screenshot 2025-04-20 154757](https://github.com/user-attachments/assets/908a0e1c-be4e-40fe-9548-bd9024e659e7)
+
+
+![Screenshot 2025-04-20 154819](https://github.com/user-attachments/assets/a8ba29f7-01ba-4a39-9137-51ff8bed5e05)
+
+
+🤝 Contributing
+Got an idea to improve the platform? Fork the repo, create a PR, and let’s build this together!
+
+📬 Contact
+Want to collaborate or give feedback?
+
+📧 Email: anujkr028@gmail.com
+
+⭐️ Show your support
+Give this repo a ⭐ if you find it helpful! Let’s empower every hacker out there 🚀
+
+
